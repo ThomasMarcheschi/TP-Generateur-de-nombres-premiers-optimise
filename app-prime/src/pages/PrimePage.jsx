@@ -8,8 +8,10 @@ const queryClient = new QueryClient();
 function PrimePage() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Prime />
-      <CheckPrime />
+      <div className="flex flex-col gap-4 w-full h-screen bg-gray-500 justify-start pt-40 items-center">
+        <Prime />
+        <CheckPrime />
+      </div>
     </QueryClientProvider>
   );
 }

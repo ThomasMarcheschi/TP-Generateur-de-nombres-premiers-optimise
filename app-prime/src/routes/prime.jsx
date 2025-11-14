@@ -1,9 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
+import PrimePage from "../pages/PrimePage.jsx";
 
-export const Route = createFileRoute('/prime')({
-  component: RouteComponent,
-})
-
-function RouteComponent() {
-  return <div>Hello "/prime"!</div>
-}
+export const Route = createFileRoute("/prime")({
+  component: PrimePage,
+});

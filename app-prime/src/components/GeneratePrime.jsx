@@ -1,19 +1,16 @@
 import { usePrimeAlea } from "../hooks/usePrimeAlea";
 
 function Prime() {
-  const { data, isLoading, isError, error, refetch } = usePrimeAlea();
+  const { data, isLoading, isError, error } = usePrimeAlea();
 
   if (isLoading) return <div>Chargement…</div>;
   if (isError) return <div>Erreur: {String(error)}</div>;
 
-  const number = data?.number; // accéder au nombre
-
-  console.log(data);
+  const number = data?.number;
 
   return (
-    <div>
+    <div className="flex flex-col gap-2 border shadow-md px-6 py-3">
       Nombre aléatoire : {number}
-      <button onClick={() => refetch()}>Générer un nouveau</button>
     </div>
   );
 }

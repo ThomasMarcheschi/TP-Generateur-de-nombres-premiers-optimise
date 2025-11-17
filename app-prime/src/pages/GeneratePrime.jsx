@@ -1,17 +1,17 @@
 import React from "react";
+import Prime from "../components/GeneratePrime";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import CheckPrime from "../components/CheckPrime.jsx";
 
-const queryClient = new QueryClient();
+const GeneratePrime = () => {
+  const queryClient = new QueryClient();
 
-function PrimePage() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex flex-col gap-4 w-full h-screen bg-gray-500 justify-start pt-40 items-center">
-        <CheckPrime />
+        <Prime />
       </div>
     </QueryClientProvider>
   );
-}
+};
 
-export default PrimePage;
+export default GeneratePrime;

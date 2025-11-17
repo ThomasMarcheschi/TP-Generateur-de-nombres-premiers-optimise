@@ -7,8 +7,14 @@ const RootLayout = () => (
       <Link to="/" className="[&.active]:font-bold">
         Home
       </Link>{" "}
+      <Link to="/generateprime" className="[&.active]:font-bold">
+        Generateur
+      </Link>
       <Link to="/prime" className="[&.active]:font-bold">
-        Prime
+        Verificateur
+      </Link>
+      <Link to="/minigame" className="[&.active]:font-bold">
+        Mini Jeu
       </Link>
     </div>
     <hr />

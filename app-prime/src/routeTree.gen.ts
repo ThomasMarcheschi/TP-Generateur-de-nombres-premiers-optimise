@@ -10,11 +10,23 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PrimeRouteImport } from './routes/prime'
+import { Route as MinigameRouteImport } from './routes/minigame'
+import { Route as GenerateprimeRouteImport } from './routes/generateprime'
 import { Route as IndexRouteImport } from './routes/index'
 
 const PrimeRoute = PrimeRouteImport.update({
   id: '/prime',
   path: '/prime',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MinigameRoute = MinigameRouteImport.update({
+  id: '/minigame',
+  path: '/minigame',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GenerateprimeRoute = GenerateprimeRouteImport.update({
+  id: '/generateprime',
+  path: '/generateprime',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +37,35 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/generateprime': typeof GenerateprimeRoute
+  '/minigame': typeof MinigameRoute
   '/prime': typeof PrimeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/generateprime': typeof GenerateprimeRoute
+  '/minigame': typeof MinigameRoute
   '/prime': typeof PrimeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/generateprime': typeof GenerateprimeRoute
+  '/minigame': typeof MinigameRoute
   '/prime': typeof PrimeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/prime'
+  fullPaths: '/' | '/generateprime' | '/minigame' | '/prime'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/prime'
-  id: '__root__' | '/' | '/prime'
+  to: '/' | '/generateprime' | '/minigame' | '/prime'
+  id: '__root__' | '/' | '/generateprime' | '/minigame' | '/prime'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GenerateprimeRoute: typeof GenerateprimeRoute
+  MinigameRoute: typeof MinigameRoute
   PrimeRoute: typeof PrimeRoute
 }
 
@@ -56,6 +76,20 @@ declare module '@tanstack/react-router' {
       path: '/prime'
       fullPath: '/prime'
       preLoaderRoute: typeof PrimeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/minigame': {
+      id: '/minigame'
+      path: '/minigame'
+      fullPath: '/minigame'
+      preLoaderRoute: typeof MinigameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/generateprime': {
+      id: '/generateprime'
+      path: '/generateprime'
+      fullPath: '/generateprime'
+      preLoaderRoute: typeof GenerateprimeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +104,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GenerateprimeRoute: GenerateprimeRoute,
+  MinigameRoute: MinigameRoute,
   PrimeRoute: PrimeRoute,
 }
 export const routeTree = rootRouteImport

@@ -9,8 +9,9 @@ function Prime() {
   const number = data?.number;
 
   return (
-    <div className="flex flex-col gap-2 border shadow-md px-6 py-3">
-      Nombre aléatoire : {number}
+    <div className="flex flex-col gap-2 border shadow-md px-6 py-3 justify-center items-center rounded-lg">
+      <p>Un nombre premier sera généré toutes les secondes</p>
+      <div> Nombre aléatoire : {number}</div>
     </div>
   );
 }

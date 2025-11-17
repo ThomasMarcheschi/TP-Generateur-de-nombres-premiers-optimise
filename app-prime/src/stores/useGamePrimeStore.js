@@ -31,5 +31,6 @@ export const useGamePrimeStore = create((set, get) => ({
       set({ buttonPress: "false" });
     }
   },
-  reset: () => set({ ...initialState, isDisabled: false }),
+  reset: () => set({ isDisabled: false }),
+  resetButtonPress: () => set({ buttonPress: null }),
 }));

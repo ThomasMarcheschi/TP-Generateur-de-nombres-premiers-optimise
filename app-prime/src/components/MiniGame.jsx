@@ -3,23 +3,34 @@ import Button from "./ui/Button.jsx";
 import { useGamePrimeStore } from "../stores/useGamePrimeStore.js";
 
 function MiniGame() {
-  const { data, isLoading, isError, error, refetch, reset } =
-    useGamePrimeAlea();
-  const { checkIfPrime, isDisabled, wichButton, buttonPress } =
-    useGamePrimeStore();
+  const { data, isLoading, isError, error, refetch } = useGamePrimeAlea();
+  const {
+    checkIfPrime,
+    isDisabled,
+    wichButton,
+    buttonPress,
+    resetButtonPress,
+    reset,
+  } = useGamePrimeStore();
 
-  //   setNumber(data?.number ?? 0);
   const handletrue = () => {
-    checkIfPrime();
-    wichButton("true");
+    if (!isDisabled) {
+      checkIfPrime();
+      wichButton("true");
+    }
   };
+
   const handlefalse = () => {
-    checkIfPrime();
-    wichButton("false");
+    if (!isDisabled) {
+      checkIfPrime();
+      wichButton("false");
+    }
   };
+
   const handleClick = () => {
     refetch();
     reset();
+    resetButtonPress();
   };
   if (isLoading) return <div>Chargement…</div>;
   if (isError) return <div>Erreur: {String(error)}</div>;
@@ -49,25 +60,25 @@ function MiniGame() {
         >
           Faux
         </Button>
-        {buttonPress === "true" && isDisabled && (
-          <>
-            {data && data.isPrime ? (
-              <div>Bonne réponse ! C'est un nombre premier.</div>
-            ) : (
-              <div>Mauvaise réponse ! Ce n'est pas un nombre premier.</div>
-            )}
-          </>
-        )}
-        {buttonPress === "false" && isDisabled && (
-          <>
-            {data && !data.isPrime ? (
-              <div>Bonne réponse ! Ce n'est pas un nombre premier.</div>
-            ) : (
-              <div>Mauvaise réponse ! C'est un nombre premier.</div>
-            )}
-          </>
-        )}
       </div>
+      {buttonPress === "true" && isDisabled && (
+        <div>
+          {data && data.isPrime ? (
+            <p>Bonne réponse ! C'est un nombre premier.</p>
+          ) : (
+            <p>Mauvaise réponse ! Ce n'est pas un nombre premier.</p>
+          )}
+        </div>
+      )}
+      {buttonPress === "false" && isDisabled && (
+        <div>
+          {data && !data.isPrime ? (
+            <p>Bonne réponse ! Ce n'est pas un nombre premier.</p>
+          ) : (
+            <p>Mauvaise réponse ! C'est un nombre premier.</p>
+          )}
+        </div>
+      )}
     </>
   );
 }

@@ -1,0 +1,21 @@
+import { usePrimeAlea } from "../hooks/usePrimeAlea";
+
+function Prime() {
+  const { data, isLoading, isError, error } = usePrimeAlea();
+
+  // Loading et catch d'erreur
+
+  if (isLoading) return <div>Chargement…</div>;
+  if (isError) return <div>Erreur: {String(error)}</div>;
+
+  const number = data?.number;
+
+  return (
+    <div className="flex flex-col gap-2 border shadow-md px-6 py-3 justify-center items-center rounded-lg">
+      <p>Un nombre premier sera généré toutes les secondes</p>
+      <div> Nombre aléatoire : {number}</div>
+    </div>
+  );
+}
+
+export default Prime;

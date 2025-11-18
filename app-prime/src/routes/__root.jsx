@@ -3,12 +3,18 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 const RootLayout = () => (
   <>
-    <div className="p-2 flex gap-2">
+    <div className="p-2 flex gap-2 bg-gray-600 justify-center">
       <Link to="/" className="[&.active]:font-bold">
         Home
       </Link>{" "}
-      <Link to="/primes" className="[&.active]:font-bold">
-        Primes
+      <Link to="/generateprime" className="[&.active]:font-bold">
+        Générateur
+      </Link>
+      <Link to="/prime" className="[&.active]:font-bold">
+        Verificateur
+      </Link>
+      <Link to="/minigame" className="[&.active]:font-bold">
+        Mini Jeu
       </Link>
     </div>
     <hr />

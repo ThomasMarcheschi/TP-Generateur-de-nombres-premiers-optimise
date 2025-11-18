@@ -9,7 +9,7 @@ export function usePrimeAlea() {
   return useQuery({
     queryKey: ["primeData"],
     queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       const number = primes[Math.floor(Math.random() * primes.length)];
       const raw = { number, limit: primes.length };
       return numberSchema.parse(raw);

@@ -1,3 +1,5 @@
+// Fonction afin de déterminer si un nombre est premier ou non
+
 export const numberIsPrime = (number) => {
   if (number < 2) return false;
 

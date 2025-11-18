@@ -3,6 +3,8 @@ import { usePrimeAlea } from "../hooks/usePrimeAlea";
 function Prime() {
   const { data, isLoading, isError, error } = usePrimeAlea();
 
+  // Loading et catch d'erreur
+
   if (isLoading) return <div>Chargement…</div>;
   if (isError) return <div>Erreur: {String(error)}</div>;
 

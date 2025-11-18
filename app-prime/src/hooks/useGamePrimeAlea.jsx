@@ -1,6 +1,8 @@
 import { numberSchema } from "../schemas/numberSchema";
 import { useQuery } from "@tanstack/react-query";
 
+// Fetch d'un nombre aléatoire entre 0 et 99 999 avec un Timeout très court pour le jeu
+
 export function useGamePrimeAlea() {
   return useQuery({
     queryKey: ["primeGameData"],

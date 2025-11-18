@@ -13,6 +13,8 @@ function MiniGame() {
     reset,
   } = useGamePrimeStore();
 
+  // Gestion de la réaction des boutons
+
   const handletrue = () => {
     if (!isDisabled) {
       checkIfPrime();

@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { numberIsPrime } from "../services/isPrime.service.js";
-import { is } from "zod/v4/locales";
 
 const initialState = {
   number: 0,
@@ -8,6 +7,8 @@ const initialState = {
   isDisabled: false,
   buttonPress: "",
 };
+
+// Gestion de l'état global de la vérification d'un nombre premier et de l'action des boutons dans la page du jeu
 
 export const useGamePrimeStore = create((set, get) => ({
   ...initialState,

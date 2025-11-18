@@ -2,6 +2,8 @@ import { numberSchema } from "../schemas/numberSchema";
 import { useQuery } from "@tanstack/react-query";
 import { usePrimeStore } from "../stores/usePrimeStore.js";
 
+// Fetch d'un nombre aléatoire depuis le tableau "primes" et mise en place d'un interval de rafraichissement
+
 export function usePrimeAlea() {
   const { primes } = usePrimeStore();
   return useQuery({

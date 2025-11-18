@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { numberIsPrime } from "../services/isPrime.service.js";
 
+// Gestion de l'état global de la vérification d'un nombre premier pour la page prime
+
 const initialState = {
   number: 0,
   isPrime: null,

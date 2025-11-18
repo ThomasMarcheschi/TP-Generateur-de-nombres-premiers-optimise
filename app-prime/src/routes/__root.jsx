@@ -3,12 +3,12 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 const RootLayout = () => (
   <>
-    <div className="p-2 flex gap-2 bg-gray-600">
+    <div className="p-2 flex gap-2 bg-gray-600 justify-center">
       <Link to="/" className="[&.active]:font-bold">
         Home
       </Link>{" "}
       <Link to="/generateprime" className="[&.active]:font-bold">
-        Generateur
+        Générateur
       </Link>
       <Link to="/prime" className="[&.active]:font-bold">
         Verificateur
